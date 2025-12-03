@@ -5,8 +5,11 @@ export const useStore = create((set) => ({
   page: 1,
 
   fetchEntities: async (page = 1) => {
-    const res = await fetch(`https://jikan.moe/api/v4/anime?limit=10&page=${page}`);
+    const res = await fetch(
+      `https://jikan.moe/api/v4/anime?limit=10&page=${page}`
+    );
     const data = await res.json();
-    set({ entities: data, page });
+
+    set({ entities: data.data, page });
   },
 }));
