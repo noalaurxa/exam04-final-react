@@ -5,7 +5,7 @@ export const useStore = create((set) => ({
   page: 1,
 
   fetchEntities: async (page = 1) => {
-    const res = await fetch(`https://api.jikan.moe/v4/anime`);
+    const res = await fetch(`https://jikan.moe/api/v4/anime?`);
     const data = await res.json();
     set({ entities: data, page });
   },
