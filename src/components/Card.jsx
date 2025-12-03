@@ -1,15 +1,13 @@
-export default function Card({ item }) {
+import Card from "./Card";
+
+export default function CardList({ data = [] }) {
   return (
-    <div className="card shadow-sm">
-      <img
-        src={item.image}
-        alt={item.title}
-        className="card-img-top"
-        style={{ height: "200px", objectFit: "cover" }}
-      />
-      <div className="card-body">
-        <h5>{item.title}</h5>
-      </div>
+    <div className="row">
+      {data.map((item) => (
+        <div className="col-md-4 mb-4" key={item.id}>
+          <Card item={item} />
+        </div>
+      ))}
     </div>
   );
 }
